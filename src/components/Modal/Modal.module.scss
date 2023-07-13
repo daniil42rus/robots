@@ -1,0 +1,44 @@
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.5s ease-in-out;
+  z-index: 120;
+}
+
+.modal {
+  background-color: #fff;
+  width: 100%;
+  max-width: 496px;
+  padding: 40px 30px;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease-in-out;
+  z-index: 130;
+
+  img {
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  svg {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 16px;
+    width: 16px;
+    opacity: 0.5;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

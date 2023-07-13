@@ -1,0 +1,308 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 46px;
+}
+
+section {
+  padding: 50px 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 24px;
+}
+
+aside {
+  grid-column: 1;
+  padding: 10px 0;
+
+  .number {
+    padding: 0 4px;
+    color: #667380;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    user-select: none;
+  }
+}
+
+.hero {
+  aside {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 53px 0 39px 0;
+
+    .number,
+    .scroll {
+      padding: 0 5px;
+      color: #667380;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    .scroll {
+      position: relative;
+      transform-origin: 6% 0%;
+      display: inline-block;
+      transform: rotate(270deg);
+
+      &::before {
+        content: url('./img/arrow.svg');
+        position: absolute;
+        left: -28px;
+        bottom: -7px;
+        display: inline-block;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .hero__left {
+    padding: 24px 0;
+    grid-column: span 4;
+    h1 {
+      margin-bottom: 24px;
+      font-size: 56px;
+      font-weight: 600;
+      line-height: 72px;
+    }
+    p {
+      color: #a3b8cc;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 32px;
+    }
+  }
+
+  .hero__right {
+    grid-column: span 3;
+    background: url('./img/robot.png') center no-repeat;
+  }
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  margin-bottom: 60px;
+}
+.wallet {
+  padding-bottom: 54px;
+  .wallet__content {
+    grid-column: span 4;
+
+    ul {
+      display: flex;
+      height: 20px;
+      margin-bottom: 24px;
+      list-style: none;
+
+      li {
+        width: 16px;
+        height: 20px;
+        background: url('./img/coin.png');
+        margin-left: -10px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+    p {
+      margin-bottom: 44px;
+      color: #a3b8cc;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 24px;
+      span {
+        margin-right: 5px;
+        color: #a3b8cc;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 24px;
+      }
+    }
+    button {
+      margin-right: 31px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255, 127, 34, 0.5);
+      color: #ff7f22;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        border-bottom: 1px solid #ff5722;
+        color: #ff5722;
+      }
+      &:active {
+        border-bottom: 1px solid transparent;
+        color: #ff7f22;
+      }
+      &:disabled {
+        border-bottom: 1px solid transparent;
+        color: #4c5865;
+        cursor: default;
+      }
+    }
+    label {
+      position: relative;
+      cursor: pointer;
+      input {
+        position: absolute;
+        appearance: none;
+        margin-right: 10px;
+
+        &:checked + .check__span {
+          background-image: url('./img/cb.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        &:hover + .check__span {
+          border: 2px solid #4c5865;
+        }
+
+        &:disabled + .check__span {
+          background-image: none;
+          border: 2px solid #333940;
+        }
+      }
+      .check__span {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border: 2px solid #a3b8cc;
+        box-sizing: border-box;
+        transition: border 0.2s ease-in-out;
+      }
+      .imput__text {
+        margin-left: 37px;
+        font-weight: 500;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+.market__content,
+.stock__content {
+  grid-column: span 7;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    li {
+      width: 236px;
+      display: flex;
+      flex-direction: column;
+      margin-right: 24px;
+    }
+  }
+}
+
+.stock {
+  padding-bottom: 66px;
+}
+
+.production__content {
+  grid-column: span 7;
+
+  .production__assembly {
+    display: flex;
+    padding: 15px 0;
+    .production__constructor {
+      display: flex;
+    }
+  }
+}
+
+.production__typesrobots {
+  div {
+    display: block;
+    margin-bottom: 30px;
+
+    .production__typesheading {
+      display: block;
+      margin-bottom: 16px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+    }
+    div {
+      display: flex;
+      label {
+        display: flex;
+        align-items: center;
+        min-width: 105px;
+        padding: 4px;
+        margin-right: 25px;
+
+        input {
+          appearance: none;
+          margin-right: 10px;
+          width: 24px;
+          height: 24px;
+          border: 2px solid #a3b8cc;
+          border-radius: 50%;
+          transform: translateY(-0.075em);
+          display: grid;
+          place-content: center;
+        }
+
+        input::before {
+          content: '';
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          transform: scale(0);
+          transition: 120ms transform ease-in-out;
+          box-shadow: inset 1em 1em #ff7f22;
+        }
+
+        input:checked::before {
+          transform: scale(1);
+        }
+        .production__inputname {
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+}
+
+.production__stockItems {
+  .production__list {
+    list-style: none;
+
+    .production__item {
+      border: 2px solid #ff7f22;
+      border-radius: 3px;
+      width: 48px;
+      height: 48px;
+    }
+    .production__itemBiohand {
+      background: url('./img/biohand/bought.svg') no-repeat center;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.button {
+  background: linear-gradient(180deg, #22b3e3, #7cdaf9, #22b3e3);
+  padding: 2px;
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.16);
+  border-radius: 60px;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.4s ease-in-out;
+
+  div {
+    background: #212529;
+    padding: 12px 16px;
+    border-radius: 60px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    color: #7cdaf9;
+    transition: background 0.2s ease-in-out, color 0.3s ease-in-out;
+  }
+
+  &:hover {
+    background: #7cdaf9;
+    box-shadow: 0px 10px 40px 0px #1e5466;
+  }
+  &:hover > div {
+    background: #7cdaf9;
+    color: #212529;
+  }
+
+  &:active {
+    background: #22b3e3;
+    box-shadow: none;
+  }
+  &:active > div {
+    background: #212529;
+    color: #7cdaf9;
+  }
+
+  &:disabled {
+    background: #4c5865;
+    box-shadow: none;
+    cursor: default;
+  }
+  &:disabled > div {
+    background: #212529;
+    color: #4c5865;
+  }
+}

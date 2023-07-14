@@ -1,5 +1,4 @@
 import React from 'react';
-import wallet from '../../store/wallet';
 
 import styles from './Button.module.scss';
 

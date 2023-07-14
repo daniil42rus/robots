@@ -7,6 +7,7 @@ import { AppContext } from '../../App';
 export const StockComponent = ({ id, name, price, item }) => {
   const {componentSell } = useContext(AppContext);
 
+
   return (
     <>
       <span className={styles.heding}>{name}</span>

@@ -1,0 +1,67 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 24px;
+}
+
+
+.hero {
+  aside {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 53px 0 39px 0;
+
+    .number,
+    .scroll {
+      padding: 0 5px;
+      color: #667380;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    .scroll {
+      position: relative;
+      transform-origin: 6% 0%;
+      display: inline-block;
+      transform: rotate(270deg);
+
+      &::before {
+        content: url('./img/arrow.svg');
+        position: absolute;
+        left: -28px;
+        bottom: -7px;
+        display: inline-block;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .hero__left {
+    padding: 24px 0;
+    grid-column: span 4;
+    h1 {
+      margin-bottom: 24px;
+      font-size: 56px;
+      font-weight: 600;
+      line-height: 72px;
+    }
+    p {
+      color: #a3b8cc;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 32px;
+    }
+  }
+
+  .hero__right {
+    grid-column: span 3;
+    background: url('./img/robot.png') center no-repeat;
+  }
+}

@@ -2,6 +2,14 @@ import React from 'react';
 
 import styles from './ButtonOrange.module.scss';
 
-export const ButtonOrange = ({ text }) => {
-  return <button className={styles.button}>{text}</button>;
+export const ButtonOrange = ({ text, disabled, btnClick }) => {
+  const onHandle = () => {
+    btnClick()
+  };
+
+  return (
+    <button onClick={onHandle} disabled={disabled} className={styles.button}>
+      {text}
+    </button>
+  );
 };

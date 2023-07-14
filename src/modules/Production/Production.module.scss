@@ -1,0 +1,130 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 24px;
+}
+
+.production__content {
+  grid-column: span 7;
+
+  .production__grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 24px;
+
+    .production__assembly {
+      grid-column: span 4;
+      display: flex;
+      padding: 15px 0;
+      .production__constructor {
+        list-style: none;
+        // display: flex;
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 24px;
+
+        &.production__constructor > li {
+          grid-column: span 2;
+          margin-bottom: 44px;
+        }
+        .production__btn {
+          button {
+            padding: 12px;
+          }
+        }
+        .production__annotations {
+          span {
+            color: #a3b8cc;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 16px;
+          }
+        }
+      }
+    }
+
+    .production__img {
+      height: 260px;
+      background-position: 33% 99%;
+      background-size: 415%;
+      grid-column: span 2;
+      background-image: url(./img/robots.png);
+      margin-top: 60px;
+    }
+  }
+}
+
+.production__typesrobots {
+  div {
+    display: block;
+    margin-bottom: 30px;
+
+    .production__typesheading {
+      display: block;
+      margin-bottom: 16px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+    }
+    div {
+      display: flex;
+      label {
+        display: flex;
+        align-items: center;
+        min-width: 105px;
+        padding: 4px;
+        margin-right: 25px;
+
+        input {
+          appearance: none;
+          margin-right: 10px;
+          width: 24px;
+          height: 24px;
+          border: 2px solid #a3b8cc;
+          border-radius: 50%;
+          transform: translateY(-0.075em);
+          display: grid;
+          place-content: center;
+        }
+
+        input::before {
+          content: '';
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          transform: scale(0);
+          transition: 120ms transform ease-in-out;
+          box-shadow: inset 1em 1em #ff7f22;
+        }
+
+        input:checked::before {
+          transform: scale(1);
+        }
+        .production__inputname {
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+}
+
+.production__stockItems {
+  padding-top: 5px;
+  .production__list {
+    display: flex;
+    margin-bottom: 16px;
+    list-style: none;
+
+    .production__item {
+      margin-right: 10px;
+    }
+  }
+}

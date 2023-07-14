@@ -5,21 +5,21 @@ class Construct {
   constructorRobot = [
     {
       id: 1,
-      name: 'Биорука',
+      name: 'biohand',
       item: 0,
       need: 4,
     },
 
     {
       id: 2,
-      name: 'Микрочип',
+      name: 'microchip',
       item: 0,
       need: 4,
     },
 
     {
       id: 3,
-      name: 'Душа',
+      name: 'soul',
       item: 0,
       need: 1,
     },

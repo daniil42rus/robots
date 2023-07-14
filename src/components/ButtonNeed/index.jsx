@@ -1,38 +1,50 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './ButtonNeed.module.scss';
-import { AppContext } from '../../App';
-import { remove } from 'mobx';
 import stock from '../../store/stock';
+import { SvgGen } from './SvgGen';
+import { observer } from 'mobx-react-lite';
 
-export const ButtonNeed = ({ id, obj, onGet }) => {
-  //   const {  stockComponentArr } = useContext(AppContext);
+export const ButtonNeed = observer(({ id, obj, onGet, disabled }) => {
+  const [btnActive, setbtnActive] = useState(false);
+
   const stockItems = stock.stockComponentArr.find(
     (item) => item.id === obj.id
   ).item;
 
   const handleComp = () => {
-    onGet({ id, obj });
-    disabledBtn();
+    setbtnActive(!btnActive);
+    onGet({ id, obj, btnActive });
   };
 
+  // const disabledBtn = () => {
+  //   if (!stockItems && !obj.item) {
+  //     return true;
+  //   } else if (stockItems) {
+  //     return 1 + obj.item < id;
+  //   } else {
+  //     return obj.item < id;
+  //   }
+  // };
   const disabledBtn = () => {
     if (!stockItems && !obj.item) {
       return true;
     } else {
-      return obj.item + stockItems < id;
+      return stockItems + obj.item < id;
     }
-
-    // return !stockItems && obj.item < id;
   };
 
   return (
     <button
       disabled={disabledBtn()}
       id={id}
-      className={styles.buttonNeed + ' ' + styles.buttonNeedImg}
+      className={
+        styles.buttondef +
+        ' ' +
+        `${btnActive ? styles.buttonBoughtImg : styles.buttonInstallImg}`
+      }
       onClick={handleComp}
     >
-      {obj.item}
+      <SvgGen val={obj.name} />
     </button>
   );
-};
+});

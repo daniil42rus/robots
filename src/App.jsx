@@ -28,6 +28,24 @@ const App = () => {
     },
   ];
 
+  const marketComponentArr2 = {
+    biohand: {
+      name: 'Биорука',
+      price: 7,
+      imageUrl: './img/biohand.svg',
+    },
+
+    microchip: {
+      name: 'Микрочип',
+      price: 5,
+      imageUrl: './img/microchip.svg',
+    },
+    soul: {
+      name: 'Душа',
+      price: 25,
+      imageUrl: './img/soul.svg',
+    },
+  };
   // const constructorRobot = {
   //   biohand: {
   //     id: 1,
@@ -65,20 +83,31 @@ const App = () => {
     ).item--;
   };
 
-  const componentGet = ({ id, obj }) => {
-    stock.stockComponentArr.find(
-      (stockObj) => Number(stockObj.id) === Number(obj.id)
-    ).item--;
+  const componentGet = ({ id, obj, btnActive }) => {
+    if (btnActive) {
+      stock.stockComponentArr.find(
+        (stockObj) => Number(stockObj.id) === Number(obj.id)
+      ).item++;
 
-     construct.constructorRobot.find(
-      (constObj) => Number(constObj.id) === Number(obj.id)
-    ).item++;
+      construct.constructorRobot.find(
+        (constObj) => Number(constObj.id) === Number(obj.id)
+      ).item--;
+    } else {
+      stock.stockComponentArr.find(
+        (stockObj) => Number(stockObj.id) === Number(obj.id)
+      ).item--;
+
+      construct.constructorRobot.find(
+        (constObj) => Number(constObj.id) === Number(obj.id)
+      ).item++;
+    }
   };
 
   return (
     <AppContext.Provider
       value={{
         marketComponentArr,
+        marketComponentArr2,
         componentBuy,
         componentSell,
         componentGet,

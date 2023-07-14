@@ -1,15 +1,33 @@
-.buttonNeedImg {
-  background: url('./img/biohand/bought.svg') no-repeat center;
-}
-.buttonNeed {
-  border: 2px solid #ff7f22;
-  border-radius: 3px;
+.buttondef {
   width: 48px;
   height: 48px;
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 3px;
   cursor: pointer;
+  transition: 0.1s ease-in-out;
 
   &:disabled {
-    background: #333940;
-    border: 2px solid #333940;
+    background-color: #333940;
+    cursor: default;
+
+    svg path {
+      fill: #4c5865;
+    }
   }
+
+  svg {
+    width: 44px;
+    height: 60%;
+  }
+}
+
+.buttonInstallImg {
+  background-color: #333940;
+  svg path {
+    fill: #ffffff;
+  }
+}
+.buttonBoughtImg {
+  border: 2px solid #ff7f22;
 }

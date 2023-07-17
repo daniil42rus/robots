@@ -1,5 +1,4 @@
 .layout {
-  // height: 100vh;
   background: radial-gradient(
     82.33% 70.44% at 50% 0%,
     #26394d 0%,
@@ -7,9 +6,21 @@
   );
 
   .container {
+    max-width: 1016px;
     padding: 48px 0;
-
     max-width: 1016px;
     margin: 0 auto;
+
+    @media screen and (max-width: 1919px) {
+      max-width: 756px;
+    }
+    @media screen and (max-width: 1023px) {
+      max-width: 496px;
+    padding: 28px 0;
+
+    }
+    @media screen and (max-width: 767px) {
+      max-width: 236px;
+    }
   }
 }

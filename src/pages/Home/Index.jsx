@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ButtonOrange } from '../../components/ButtonOrange';
 import { observer } from 'mobx-react-lite';
 import wallet from '../../store/wallet';
@@ -11,11 +11,13 @@ import { Stock } from '../../modules/Stock';
 import { Production } from '../../modules/Production';
 
 export const Home = observer(() => {
-  const [modalOver, setModalOver] = useState(false);
+  const productionScroll = useRef();
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (wallet.walletCoins >= 100) {
-      setModalOver(true);
+      setModalOpen(true);
       wallet.maxCoins();
       document.body.style.overflow = 'hidden';
     } else {
@@ -23,13 +25,31 @@ export const Home = observer(() => {
     }
   }, [wallet.walletCoins]);
 
+  const handleClickScroll = () => {
+    const element = productionScroll.current;
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
-      {modalOver && <Modal open={modalOver} setOpen={setModalOver}></Modal>}
+      {modalOpen && (
+        <Modal
+          h3={'Количество монет ограничено'}
+          span={'Вы не можете нацыганить более 100 монет biorobo'}
+          open={modalOpen}
+          setOpen={setModalOpen}
+          img
+        />
+      )}
 
       <header className={styles.header}>
-        <img src="./img/logo.svg" alt="" />
-        <ButtonOrange text={'Произвести биоробота'} />
+        <img src="./img/logo.svg" alt="Logo" />
+        <ButtonOrange
+          btnClick={handleClickScroll}
+          text={'Произвести биоробота'}
+        />
       </header>
 
       <main>
@@ -38,7 +58,7 @@ export const Home = observer(() => {
         <Market />
         <Stock />
 
-        <Production />
+        <Production scrollRef={productionScroll} />
       </main>
       <footer></footer>
     </>

@@ -1,7 +1,7 @@
 import React from 'react';
 import stock from '../../store/stock';
 import { StockComponent } from '../../components/StockComponent';
-import styles from '../../pages/Home/Home.module.scss';
+import styles from './Stock.module.scss';
 import { observer } from 'mobx-react-lite';
 
 export const Stock = observer(() => {
@@ -14,8 +14,8 @@ export const Stock = observer(() => {
         <div className={styles.stock__content}>
           <h2>Склад</h2>
           <ul>
-            {stock.stockComponentArr.map((obj, index) => (
-              <li key={index}>
+            {stock.stockComponentArr.map((obj) => (
+              <li key={obj.id}>
                 <StockComponent {...obj} />
               </li>
             ))}

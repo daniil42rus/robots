@@ -19,24 +19,10 @@ class Stock {
       id: 3,
       name: 'Душа',
       price: 15,
-      item: 4,
+      item: 3,
     },
   ];
 
-  stockComponentArr2 = {
-    biohand: {
-      item: 0,
-      sellPrice: 5,
-    },
-    microchip: {
-      count: 0,
-      sellPrice: 3,
-    },
-    soul: {
-      count: 0,
-      sellPrice: 15,
-    },
-  };
 
   constructor() {
     makeAutoObservable(this);

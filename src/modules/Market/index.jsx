@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../App';
 import { MarketComponent } from '../../components/MarketComponent';
-import styles from '../../pages/Home/Home.module.scss';
+import styles from './Market.module.scss';
 import { observer } from 'mobx-react-lite';
-
 
 export const Market = observer(() => {
   const { marketComponentArr } = useContext(AppContext);
@@ -17,8 +16,8 @@ export const Market = observer(() => {
         <div className={styles.market__content}>
           <h2>Рынок комплектующих</h2>
           <ul>
-            {marketComponentArr.map((obj, index) => (
-              <li key={index}>
+            {marketComponentArr.map((obj) => (
+              <li key={obj.id}>
                 <MarketComponent {...obj} />
               </li>
             ))}

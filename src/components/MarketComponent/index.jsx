@@ -15,7 +15,7 @@ export const MarketComponent = observer(({ id, name, price, imageUrl }) => {
         className={styles.imgBack}
         style={{ backgroundImage: `url(${imageUrl})` }}
       ></div>
-      <span className={styles.heding}>{name}</span>
+      <span className={styles.headind}>{name}</span>
       <span className={styles.price}>Стоимость: {price} монет</span>
       <Button
         disabled={price > wallet.walletCoins}

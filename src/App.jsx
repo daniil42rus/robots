@@ -28,78 +28,37 @@ const App = () => {
     },
   ];
 
-  const marketComponentArr2 = {
-    biohand: {
-      name: 'Биорука',
-      price: 7,
-      imageUrl: './img/biohand.svg',
-    },
-
-    microchip: {
-      name: 'Микрочип',
-      price: 5,
-      imageUrl: './img/microchip.svg',
-    },
-    soul: {
-      name: 'Душа',
-      price: 25,
-      imageUrl: './img/soul.svg',
-    },
-  };
-  // const constructorRobot = {
-  //   biohand: {
-  //     id: 1,
-  //     name: 'Биорука',
-  //     item: 0,
-  //     need: 4,
-  //   },
-
-  //   microchip: {
-  //     id: 2,
-  //     name: 'Микрочип',
-  //     item: 0,
-  //     need: 4,
-  //   },
-
-  //   soul: {
-  //     id: 3,
-  //     name: 'Душа',
-  //     item: 0,
-  //     need: 1,
-  //   },
-  // };
-
   const componentBuy = (obj) => {
     wallet.dec(obj.price);
     stock.stockComponentArr.find(
       (stockObj) => Number(stockObj.id) === Number(obj.id)
-    ).item++;
+    ).item += 1;
   };
 
   const componentSell = (obj) => {
     wallet.inc(obj.price);
     stock.stockComponentArr.find(
       (stockObj) => Number(stockObj.id) === Number(obj.id)
-    ).item--;
+    ).item -= 1;
   };
 
   const componentGet = ({ id, obj, btnActive }) => {
     if (btnActive) {
       stock.stockComponentArr.find(
         (stockObj) => Number(stockObj.id) === Number(obj.id)
-      ).item++;
+      ).item += 1;
 
       construct.constructorRobot.find(
         (constObj) => Number(constObj.id) === Number(obj.id)
-      ).item--;
+      ).item -= 1;
     } else {
       stock.stockComponentArr.find(
         (stockObj) => Number(stockObj.id) === Number(obj.id)
-      ).item--;
+      ).item -= 1;
 
       construct.constructorRobot.find(
         (constObj) => Number(constObj.id) === Number(obj.id)
-      ).item++;
+      ).item += 1;
     }
   };
 
@@ -107,7 +66,6 @@ const App = () => {
     <AppContext.Provider
       value={{
         marketComponentArr,
-        marketComponentArr2,
         componentBuy,
         componentSell,
         componentGet,

@@ -3,10 +3,25 @@
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 24px;
+
+  @media screen and (max-width: 1919px) {
+    display: block;
+  }
 }
 
 .production__content {
   grid-column: span 7;
+  h2 {
+    margin-bottom: 76px;
+  }
+
+  @media screen and (max-width: 1919px) {
+    grid-column: span 6;
+
+    h2 {
+      margin-bottom: 37px;
+    }
+  }
 
   .production__grid {
     display: grid;
@@ -14,10 +29,23 @@
     grid-template-rows: 1fr;
     grid-column-gap: 24px;
 
+    @media screen and (max-width: 1919px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @media screen and (max-width: 1023px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media screen and (max-width: 767px) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
     .production__assembly {
       grid-column: span 4;
+      @media screen and (max-width: 1023px) {
+        grid-column: span 2;
+      }
       display: flex;
-      padding: 15px 0;
       .production__constructor {
         list-style: none;
         // display: flex;
@@ -27,9 +55,22 @@
         grid-template-rows: 1fr;
         grid-column-gap: 24px;
 
+        @media screen and (max-width: 1023px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
         &.production__constructor > li {
           grid-column: span 2;
           margin-bottom: 44px;
+          @media screen and (max-width: 1919px) {
+            margin-bottom: 27px;
+          }
+          @media screen and (max-width: 1023px) {
+            margin-bottom: 9px;
+          }
+          @media screen and (max-width: 767px) {
+            margin-bottom: 30px;
+          }
         }
         .production__btn {
           button {
@@ -43,25 +84,40 @@
             font-weight: 500;
             line-height: 16px;
           }
+          @media screen and (max-width: 1023px) {
+            grid-row-start: 3;
+          }
+          @media screen and (max-width: 767px) {
+            margin-top: -16px;
+            grid-row-start: 3;
+          }
         }
       }
     }
 
     .production__img {
       height: 260px;
-      background-position: 33% 99%;
       background-size: 415%;
       grid-column: span 2;
       background-image: url(./img/robots.png);
-      margin-top: 60px;
+      margin-top: 45px;
+      @media screen and (max-width: 767px) {
+        margin-bottom: 50px;
+      }
     }
   }
 }
 
 .production__typesrobots {
-  div {
+  .production__typesBlock {
     display: block;
     margin-bottom: 30px;
+
+    @media screen and (max-width: 767px) {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
 
     .production__typesheading {
       display: block;
@@ -71,6 +127,7 @@
       font-weight: 500;
       line-height: 20px;
     }
+
     div {
       display: flex;
       label {
@@ -118,13 +175,29 @@
 
 .production__stockItems {
   padding-top: 5px;
+
   .production__list {
     display: flex;
     margin-bottom: 16px;
     list-style: none;
+
+    @media screen and (max-width: 767px) {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
 
     .production__item {
       margin-right: 10px;
     }
   }
 }
+
+// @media screen and (max-width: 1919px) {
+//   grid-template-columns: repeat(6, 1fr);
+// }
+// @media screen and (max-width: 1023px) {
+//   grid-template-columns: repeat(4, 1fr);
+// }
+// @media screen and (max-width: 767px) {
+// }
